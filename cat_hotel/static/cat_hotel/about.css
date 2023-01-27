@@ -1,0 +1,30 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.about{
+    width: 100%;
+    padding: 78px 0px;    
+}
+.about img{
+    height: auto;
+    width: 250px;
+}
+.about-text{
+    width: 500px;
+}
+.main{
+    width: 1130px;
+    max-width: 95%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.about-text h1{
+    color: #5479F7;
+    font-size: 50px;
+    text-transform: capitalize;
+    margin-bottom: 20px;
+}

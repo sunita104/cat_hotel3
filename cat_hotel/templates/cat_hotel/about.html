@@ -1,0 +1,17 @@
+{% extends 'cat_hotel/components/base.html' %}
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'cat_hotel/about.css' %}">
+<section class="about">
+    <div class="main">
+        <img src="{% static 'cat_hotel/image/pet_dog.png' %}">
+        <div class="about-text">
+            <h1>About Us</h1>
+            <h2>Cat Hotel</h2>
+            <p>โดยจุดเริ่มต้นมาจากการรักสัตว์ ได้มีแนวคิดมาเพื่อให้คนรักสัตว์เลี้ยงได้นำสัตว์เลี้ยงของท่านมาใช้บริการในหลายรูปแบบการบริการ มอบเวลาความสุข การดูแลเวลาที่ท่านไม่ว่าง  ทั้งนี้เรายังมีการจองคิวออนไลน์เพื่อเพิ่มความสะดวกสะบาย 
+                โดยที่ท่านไม่ต้องมารอคิวที่ร้าน สามารถดูวันเวลาที่สามารถจองได้และเข้ารับบริการได้เมื่อถึงคิวของท่าน                
+            </p>
+        </div>
+    </div>
+</section>
+{% endblock %}

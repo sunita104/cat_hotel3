@@ -1,0 +1,75 @@
+{% extends 'cat_hotel/components/base.html' %}
+{% block content %}
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'cat_hotel/cat_hotel.css' %}">
+
+{% if cat_hotel is not None %}
+{% csrf_token %}
+<form action="{% url 'cat_hotel' cat_hotel.number_room %}" method="post">
+    {{ form.as_p }}
+<div class="container">
+    <div class="card p-4 mt-5">
+        <div class="row g-3">
+            <div class="col-12 mb-4">
+                <h4>ห้อง {{ cat_hotel.number_room}}</h4>
+                <span class="text-muted">{{ cat_hotel.description }}</span>
+            </div>
+            <div class="col-lg-6 col-md-12">
+                <p>วันที่เข้าฝาก</p>
+                <div class="form-floating">
+                    <input type="date" class="form-control" placeholder="DEPARTING">
+                    <label>วันที่เข้าฝาก</label>    
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-12">
+                <p>เวลาที่เข้าฝาก</p>
+                <div class="form-floating">
+                    <input type="time" class="form-control" placeholder="DEPARTING">
+                    <label>เวลาที่เข้าฝาก</label>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-12">
+                <p>ถึงวันที่</p>
+                <div class="form-floating">
+                    <input type="date" class="form-control" placeholder="DEPARTING">
+                    <label>ถึงวันที่</label>    
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-12">
+                <p>ถึงเวลา</p>
+                <div class="form-floating">
+                    <input type="time" class="form-control" placeholder="DEPARTING">
+                    <label>ถึงวันที่</label>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-12">
+                <div class="form-floating">
+                    <select class="form-select">
+                        <option selected="" hidden=""></option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                    </select>
+                    <label>จำนวนแมว</label>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-12">
+                <div class="form-floating">
+                    <input type="text" class="form-control" placeholder="DEPARTING">
+                    <label>เบอร์ติดต่อ</label>    
+                </div>
+            </div>
+            <div class="col-12 mt-4">
+                <a class="btn btn-secondary text-uppercase" href="{% url 'cat_hotels' %}" >ยกเลิก</a>
+                <a class="btn btn-primary text-uppercase " href="{% url 'completed'%}" >ยืนยันการจอง<i class="fa fa-plane ms-3"></i></a>
+            </div>
+        </div>
+    </div>
+</div>
+</form>
+{% else %}
+    <p>ไม่พบข้อมูลของห้องนี้</p>
+{% endif %}
+
+{% endblock %}

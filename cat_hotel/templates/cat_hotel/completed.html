@@ -1,0 +1,88 @@
+{% extends 'cat_hotel/components/base.html' %}
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'cat_hotel/completed.css' %}">
+  <div class="container mt-5">
+    <table class="table table-borderless table-responsive card-1 p-4">
+  <thead>
+  <tr class="border-bottom">
+  <th>
+    <span class="ml-2">ห้อง</span>
+  </th>
+  <th>
+    <span class="ml-2">วันที่เข้าฝาก</span>
+  </th>
+  <th>
+    <span class="ml-2">เวลาที่เข้าฝาก</span>
+  </th>
+  <th>
+    <span class="ml-2">ฝากถึงวันที่</span>
+  </th>
+  <th>
+    <span class="ml-4">ฝากถึงเวลา</span>
+  </th>
+  <th>
+    <span class="ml-4">จำนวนแมว</span>
+  </th>
+  <th>
+    <span class="ml-4">เบอร์ติดต่อ</span>
+  </th>
+  <th>
+    <span class="ml-4">แก้ไข</span>
+  </th>
+  <th>
+    <span class="ml-4">ยกเลิก</span>
+  </th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr class="border-bottom">
+  <td>
+    <div class="">
+      <span class="d-block font-weight-bold">ห้อง {{ cat_hotel.number_room }}</span>
+    </div>
+  </td>
+  <td>
+  <div class="d-flex flex-row align-items-center mb-2">
+      <div class="d-flex flex-column ml-2">
+          <span class="d-block font-weight-bold">12/01/2023</span>
+      </div>
+  </div>
+  </td>
+  <td>
+    <div class="">
+      <span class="font-weight-bold">11:00</span>
+    </div>
+  </td>
+  <td>
+    <div class="d-flex flex-column">
+      <span>13/01/2023</span>
+    </div>
+  </td>
+  <td>
+    <div class="d-flex flex-column">
+        <span>11:00</span>
+    </div>
+  </td>
+  <td>
+    <div class="d-flex flex-column">
+        <span>3</span>
+    </div>
+  </td>
+  <td>
+    <div class="d-flex flex-column">
+        <span>0930049211</span>
+    </div>
+  </td>
+  <td>
+    <a class="btn btn-warning text-uppercase" href="{% url 'edit_completed' %}" >แก้ไข</a>
+  </td>
+  <td>
+    <a class="btn btn-danger text-uppercase" href="{% url 'cat_hotels' %}" >ยกเลิก</a>
+  </td>
+  </tr>
+  </tbody>
+  </table>
+  </div>
+</form>
+{% endblock %}

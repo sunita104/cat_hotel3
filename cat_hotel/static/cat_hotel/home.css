@@ -1,0 +1,19 @@
+.imagelogo img{
+    height: 300px;
+    margin-left: 70px;
+    margin-top: 50px;
+    cursor: pointer;
+}
+.textlogo{
+    margin-left: 100px;
+    margin-top: 10px; 
+}
+.image001{
+    display: flex;
+}
+.image002 img{
+    margin-top: 70px;
+    margin-left: 350px;
+    height: 350px;
+}
+

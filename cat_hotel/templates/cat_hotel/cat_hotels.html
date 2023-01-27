@@ -1,0 +1,27 @@
+{% extends 'cat_hotel/components/base.html' %}
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'cat_hotel/cat_hotels.css' %}">
+
+<div class="container mt-100">
+    <div class="row">
+        {% for cat_hotel in cat_hotels %}
+        <div class="col-md-4 col-sm-6">
+          <div class="card mb-30"><a class="card-img-tiles" href="#" data-abc="true">
+              <div class="inner">
+                <div class="main-img"><img src="{% static 'cat_hotel/image/cat2.png' %}"></div>
+                <div class="thumblist"><img src="{% static 'cat_hotel/image/cat1.png' %}" alt="Category"><img src="{% static 'cat_hotel/image/cat3.png' %}" alt="Category"></div>
+              </div></a>
+            <div class="card-body text-center">
+              <h4 class="card-title">ห้อง {{ cat_hotel.number_room }}</h4>
+              <p class="text-muted"> {{ cat_hotel.description }}</p><a class="btn btn-outline-primary btn-s" href="{% url 'cat_hotel' cat_hotel.number_room %}" data-abc="true">จอง</a>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+    </div>
+</div> 
+                           		
+
+                            	
+{% endblock %}

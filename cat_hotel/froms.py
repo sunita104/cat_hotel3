@@ -2,7 +2,14 @@ from django import forms
 from .models import Booking, Room, Customer
 
 class BookingForm(forms.ModelForm):
-    room = forms.ModelChoiceField(queryset=Room.objects.all())
+    room = forms.ModelChoiceField(
+        queryset=Room.objects.all(),
+        widget=forms.Select(attrs={'id': 'id_room'})
+    )
+    description = forms.ModelChoiceField(
+        queryset=description.objects.all(),
+        widget=forms.Select(attrs={'id': 'id_description'})
+    )
     customer = forms.ModelChoiceField(queryset=Customer.objects.all())
     start_date = forms.DateField()
     start_time = forms.TimeField()

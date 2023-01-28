@@ -19,9 +19,6 @@ def profile(requset):
     return render(requset, 'cat_hotel/profile.html')
 
 
-def login_user(requset):
-    return render(requset, 'cat_hotel/login_user.html')
-
 
 def cat_hotels(requset):
     all_rooms = Room.objects.all()

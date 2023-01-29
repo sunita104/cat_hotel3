@@ -9,12 +9,10 @@
     <div class="card p-4 mt-5">
         <div class="row g-3">
             <div class="col-12 mb-4">
-                <label for="{{ form.number_room.id_for_label }}">ห้อง :</label>
-                    <select id="{{ form.number_room.id_for_label }}" name="{{ form.number_room.name }}">
-                    {% for room in form.number_room.field.queryset %}
-                    <option value="{{ room.pk }}" {% if room.pk == form.number_room.value %}selected{% endif %}>{{ room.description }}</option>
-                    {% endfor %}
-                    </select>
+                <div class="col-12 mb-4">
+                    <h4>ห้อง {{ cat_hotel.number_room}}</h4>
+                    <span class="text-muted">{{ cat_hotel.description }}</span>
+                </div>
             </div>
             <div class="col-lg-6 col-md-12">
                 <p>วันที่เข้าฝาก</p>

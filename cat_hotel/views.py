@@ -3,7 +3,7 @@ from django.shortcuts import render, redirect
 from django.urls import reverse
 from .models import Room
 from .models import Booking
-from .froms import BookingForm
+from .forms import BookingForm
 # Create your views here.
 
 
@@ -25,13 +25,14 @@ def cat_hotels(requset):
     context = {'cat_hotels': all_rooms}
     return render(requset,'cat_hotel/cat_hotels.html', context)
 
+
 def cat_hotel(request, number_room):
     one_room = None
     try:
         one_room = Room.objects.get(number_room=number_room)
-        url = reverse('cat_hotel', args=[number_room])
     except Room.DoesNotExist:
         print('Room not found')
+        raise Http404("Room not found")
 
     if request.method == 'POST':
         form = BookingForm(request.POST)
@@ -39,7 +40,7 @@ def cat_hotel(request, number_room):
             form.save()
             return redirect('success')
     else:
-        form = BookingForm()
+        form = BookingForm(initial={'room': one_room})
         
     context = { 'cat_hotel': one_room, 'form': form }
     return render(request, 'cat_hotel/cat_hotel.html', context)

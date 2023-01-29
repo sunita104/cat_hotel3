@@ -2,7 +2,6 @@
 {% block content %}
 {% load static %}
 
-{% if cat_hotel is not None %}
 {% csrf_token %}
 <form action="{% url 'cat_hotel' cat_hotel.number_room %}" method="post">
 <div class="container">
@@ -15,36 +14,36 @@
                 </div>
             </div>
             <div class="col-lg-6 col-md-12">
-                <p>วันที่เข้าฝาก</p>
+                <p>วันที่</p>
                 <div class="form-floating">
-                    <input type="date" class="form-control" placeholder="DEPARTING">
-                    <label>วันที่เข้าฝาก</label>    
+                    <input type="date" class="form-control" id="start_date" name="start_date" placeholder="DEPARTING">
+                    <label>วันที่</label>    
                 </div>
             </div>
             <div class="col-lg-6 col-md-12">
                 <p>เวลาที่เข้าฝาก</p>
                 <div class="form-floating">
-                    <input type="time" class="form-control" placeholder="DEPARTING">
+                    <input  type="time" class="form-control" id="start_time" name="start_time" placeholder="DEPARTING">
                     <label>เวลาที่เข้าฝาก</label>
                 </div>
             </div>
             <div class="col-lg-6 col-md-12">
                 <p>ถึงวันที่</p>
                 <div class="form-floating">
-                    <input type="date" class="form-control" placeholder="DEPARTING">
+                    <input type="date" class="form-control" id="end_date" name="end_date" placeholder="DEPARTING">
                     <label>ถึงวันที่</label>    
                 </div>
             </div>
             <div class="col-lg-6 col-md-12">
                 <p>ถึงเวลา</p>
                 <div class="form-floating">
-                    <input type="time" class="form-control" placeholder="DEPARTING">
+                    <input type="time" class="form-control" id="end_time" name="end_time" placeholder="DEPARTING">
                     <label>ถึงวันที่</label>
                 </div>
             </div>
             <div class="col-lg-4 col-md-12">
                 <div class="form-floating">
-                    <select class="form-select">
+                    <select class="form-select" id="cat" name="cat">
                         <option selected="" hidden=""></option>
                         <option value="1">1</option>
                         <option value="2">2</option>
@@ -55,20 +54,17 @@
             </div>
             <div class="col-lg-6 col-md-12">
                 <div class="form-floating">
-                    <input type="text" class="form-control" placeholder="DEPARTING">
+                    <input type="text" class="form-control" id="phone_number" name="phone_number" placeholder="DEPARTING">
                     <label>เบอร์ติดต่อ</label>    
                 </div>
             </div>
             <div class="col-12 mt-4">
                 <a class="btn btn-secondary text-uppercase" href="{% url 'cat_hotels' %}" >ยกเลิก</a>
-                <a class="btn btn-primary text-uppercase " href="{% url 'completed'%}" >ยืนยันการจอง<i class="fa fa-plane ms-3"></i></a>
+                <a type="submit" class="btn btn-primary text-uppercase " href="{% url 'completed' %}" >ยืนยันการจอง<i class="fa fa-plane ms-3"></i></a>
             </div>
         </div>
     </div>
 </div>
 </form>
-{% else %}
-    <p>ไม่พบข้อมูลของห้องนี้</p>
-{% endif %}
 
 {% endblock %}
